@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from './Footer';
+import Information from './Information';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Hello</h1>
+      <Information>
+        <h1>My plan!</h1>
+        <ul>
+          <li>learn React</li>
+          <li>stay healthy</li>
+          <li>Make people happy</li>
+        </ul>
+      </Information>
+      <Footer
+        first={20}
+        second={2}
+        user={{
+          name: 'Denys',
+          state: 'Happy',
+          questions: 20,
+        }}
+      >
+        <h2 style={{ color: 'tomato' }}>Do not hesitate! React is cool!</h2>
+      </Footer>
     </div>
   );
-}
+};
 
 export default App;
