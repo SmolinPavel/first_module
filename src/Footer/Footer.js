@@ -1,12 +1,15 @@
-const Footer = ({
+import styles from './Footer.module.scss';
+
+export const Footer = ({
   first,
   children,
-  second,
   user: { name, state, questions },
 }) => {
   return (
-    <footer>
-      <p>Everyone has come back from the break</p>
+    <footer className={styles.Footer}>
+      <h2 className={styles.Footer__Title}>
+        Everyone has come back from the break
+      </h2>
       <p>
         First {first} is less then 10 that is {first < 10 ? 'correct' : 'a lie'}
       </p>
@@ -22,5 +25,3 @@ const Footer = ({
 Footer.defaultProps = {
   first: 3,
 };
-
-export default Footer;
