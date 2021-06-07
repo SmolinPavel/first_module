@@ -1,5 +1,3 @@
-import { Button } from "styled";
-
 const USERS = [
   {
     avatar: "https://www.flaticon.com/svg/static/icons/svg/763/763704.svg",
@@ -34,7 +32,6 @@ const USERS = [
 ];
 
 export const Test = () => {
-  console.log(USERS);
   return (
     <div>
       <h1>Example from Roman</h1>
