@@ -4,6 +4,7 @@ import { Button } from "@material-ui/core";
 import Information from "Information";
 import { Footer } from "components/Footer";
 import { Counter } from "components/Counter";
+import { Form } from "components/Form";
 
 const CAT_IMAGE_SRC =
   "https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg";
@@ -19,50 +20,21 @@ class App extends Component {
 
   incrementFruitHandler = (fruit /* apples */) => () => {
     this.setState({ [fruit]: this.state[fruit] + 1 });
-    // returns () => this.setState({ apples: this.state.apples + 1 });
   };
+
+  logInputValue = () => console.log(this.state.inputValue);
 
   render() {
     const { apples, bananas, oranges } = this.state;
     return (
       <div>
+        <Form />
         <h1>TOTAL !!! {apples + bananas + oranges} </h1>
-        <Counter
-          count={apples}
-          onIncrement={this.incrementFruitHandler("apples")}
-          name="Apple 🍏"
-        />
-        <Counter
-          count={oranges}
-          onIncrement={this.incrementFruitHandler("oranges")}
-          name="Orange 🍊"
-        />
-        <Counter
-          count={bananas}
-          onIncrement={this.incrementFruitHandler("bananas")}
-        />
         <div>
           <img src={CAT_IMAGE_SRC} alt="cat" width="200" />
         </div>
 
         <Button variant="contained">Play with the cat</Button>
-        <Information>
-          <h1>My plan!</h1>
-          <ul>
-            {tasks.map((task, idx) => (
-              <li key={idx}>{task}</li>
-            ))}
-          </ul>
-        </Information>
-        <Footer
-          first={20}
-          second={2}
-          user={{
-            name: "Denys",
-            state: "Happy",
-            questions: 20,
-          }}
-        />
       </div>
     );
   }
