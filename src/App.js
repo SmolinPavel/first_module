@@ -28,7 +28,11 @@ class App extends Component {
     const { apples, bananas, oranges } = this.state;
     return (
       <div>
-        <Form />
+        <Counter
+          name="Fruits"
+          count={apples}
+          onIncrement={this.incrementFruitHandler("apples")}
+        />
         <h1>TOTAL !!! {apples + bananas + oranges} </h1>
         <div>
           <img src={CAT_IMAGE_SRC} alt="cat" width="200" />
