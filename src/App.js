@@ -5,6 +5,7 @@ import Information from "Information";
 import { Footer } from "components/Footer";
 import { Counter } from "components/Counter";
 import { Form } from "components/Form";
+import { Hook } from "components/Hook";
 
 const CAT_IMAGE_SRC =
   "https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg";
@@ -28,17 +29,11 @@ class App extends Component {
     const { apples, bananas, oranges } = this.state;
     return (
       <div>
-        <Counter
-          name="Fruits"
-          count={apples}
-          onIncrement={this.incrementFruitHandler("apples")}
-        />
-        <h1>TOTAL !!! {apples + bananas + oranges} </h1>
         <div>
           <img src={CAT_IMAGE_SRC} alt="cat" width="200" />
         </div>
-
         <Button variant="contained">Play with the cat</Button>
+        <Hook />
       </div>
     );
   }

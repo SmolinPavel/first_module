@@ -1,18 +1,7 @@
-import { createRef, PureComponent } from "react";
+import { createRef, Component } from "react";
 import PropTypes from "prop-types";
 
-export class Increment extends PureComponent {
-  constructor(props) {
-    super(props);
-    console.log("constructor: A new instance of Increment!");
-  }
-
-  myFirstRef = createRef();
-
-  static propTypes = {
-    name: PropTypes.string,
-  };
-
+export class Increment extends Component {
   state = {
     value: 0,
   };
@@ -24,8 +13,8 @@ export class Increment extends PureComponent {
   };
 
   componentDidMount() {
-    console.log("component did mount");
-    this.intervalId = setInterval(() => console.log("kvas"), 2000);
+    // console.log('component did mount');
+    // this.intervalId = setInterval(() => console.log("kvas"), 2000);
   }
 
   componentWillUnmount() {
@@ -34,7 +23,7 @@ export class Increment extends PureComponent {
   }
 
   render() {
-    console.log("render");
+    // console.log('render');
     return (
       <div>
         <input ref={this.myFirstRef} />
