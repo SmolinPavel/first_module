@@ -1,40 +1,40 @@
 import { Component } from "react";
-import { Button } from "@material-ui/core";
+import {
+  BrowserRouter as Router,
+  NavLink as Link,
+  Redirect,
+  Route,
+  Switch,
+} from "react-router-dom";
 
-import Information from "Information";
-import { Footer } from "components/Footer";
-import { Counter } from "components/Counter";
-import { Form } from "components/Form";
+import { Cat } from "components/Cat";
 import { Hook } from "components/Hook";
 
-const CAT_IMAGE_SRC =
-  "https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg";
-
-const tasks = ["learn React", "stay healthy", "Make people happy"];
-
+// path = /test
 class App extends Component {
-  state = {
-    apples: 0,
-    bananas: 0,
-    oranges: 0,
-  };
-
-  incrementFruitHandler = (fruit /* apples */) => () => {
-    this.setState({ [fruit]: this.state[fruit] + 1 });
-  };
-
-  logInputValue = () => console.log(this.state.inputValue);
-
   render() {
-    const { apples, bananas, oranges } = this.state;
     return (
-      <div>
-        <div>
-          <img src={CAT_IMAGE_SRC} alt="cat" width="200" />
-        </div>
-        <Button variant="contained">Play with the cat</Button>
-        <Hook />
-      </div>
+      <Router>
+        <header>
+          <ul>
+            <li>
+              <Link exact activeClassName="active-link" to="/">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link exact activeClassName="active-link" to="/cat?v-meshke=true">
+                Mr Cat
+              </Link>
+            </li>
+          </ul>
+        </header>
+        <Switch>
+          <Route path="/cat" component={Cat} />
+          <Route path="/" exact component={Hook} />
+          <Redirect to="/" />
+        </Switch>
+      </Router>
     );
   }
 }
