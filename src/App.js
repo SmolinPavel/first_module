@@ -1,23 +1,31 @@
-import { Component, lazy, Suspense } from "react";
+import { createContext, Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import { Loader } from "./Loader";
+import Cat from "components/Cat";
 
-const AsyncCat = lazy(() =>
-  import("components/Cat" /* webpackChunkName: "catChunk" */)
-);
+export const SmileContext = createContext();
+SmileContext.displayName = "SmileContext";
 
 class App extends Component {
+  state = {
+    smile: "👽",
+  };
+
   render() {
     return (
-      <Router>
-        <header>
-          <h1>Cat</h1>
-        </header>
-        <Suspense fallback={<Loader />}>
-          <AsyncCat />
-        </Suspense>
-      </Router>
+      <SmileContext.Provider
+        value={{
+          smile: this.state.smile,
+          setSmile: (smile) => this.setState({ smile }),
+        }}
+      >
+        <Router>
+          <header>
+            <h1>Cat</h1>
+          </header>
+          <Cat />
+        </Router>
+      </SmileContext.Provider>
     );
   }
 }
