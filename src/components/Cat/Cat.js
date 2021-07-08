@@ -1,36 +1,23 @@
 import React from "react";
 import { Button } from "@material-ui/core";
 
-import { Smile } from "components/Smile";
-
 const CAT_IMAGE_SRC =
   "https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg";
 
 class Cat extends React.Component {
   render() {
     return (
-      <div>
+      <div style={{ padding: "1rem" }}>
         <h1>MR Cat</h1>
         <div>
           <img src={CAT_IMAGE_SRC} alt="cat" width="200" />
         </div>
         <Button variant="contained" onClick={() => {}}>
-          Play with the cat <Smile />
+          Play with the cat
         </Button>
       </div>
     );
   }
 }
-
-// export const withHOC = (smile) => (Component) => (props) =>
-//   <Component hoc={smile} {...props} />; // <Cat hoc="🍏" />
-
-// export const withHOC = (Component) => {
-//   return class WithHOC extends React.Component {
-//     render() {
-//       return <Component hoc="🍏" {...this.props} />; // <Cat hoc="🍏" />
-//     }
-//   };
-// };
 
 export default Cat;

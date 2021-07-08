@@ -1,42 +1,40 @@
-import { Component } from "react";
-import { Increment } from "./Increment";
+import { useDispatch, useSelector } from "react-redux";
+import Button from "@material-ui/core/Button";
 
-export class Counter extends Component {
-  state = {
-    value: 10,
-    open: true,
-  };
+import { clear, decrement, increment } from "store";
 
-  handleClick = () => {
-    this.myProp = setTimeout(() => {
-      this.setState({ value: 11 });
-    }, 5000);
-  };
+import styles from "./Counter.module.scss";
 
-  toggleOpen = () => this.setState({ open: !this.state.open });
+const Counter = () => {
+  const dispatch = useDispatch();
+  const timer = useSelector((state) => state.timer);
+  return (
+    <div className={styles.Counter}>
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={(e) => {
+          // { type: 'timer/decrement', payload: 1  }
+          // dispatch({ type: 'timer/decrement', payload: 1 })
+          dispatch(decrement(1));
+        }}
+      >
+        -
+      </Button>
+      <div className={styles.Counter__Value}>{timer}</div>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={() => dispatch(increment(1))}
+      >
+        +
+      </Button>
 
-  render() {
-    return (
       <div>
-        <h1>
-          {this.props.name} {this.props.count}
-        </h1>
-        <div>
-          <button onClick={this.toggleOpen}>Toggle increment</button>
-        </div>
-        {this.state.open && (
-          <div onClick={this.handleClick}>
-            <Increment
-              name={this.props.name}
-              onClick={this.props.onIncrement}
-            />
-          </div>
-        )}
+        <Button onClick={() => dispatch(clear())}>Clear</Button>
       </div>
-    );
-  }
-}
-
-Counter.defaultProps = {
-  name: "Banana 🍌",
+    </div>
+  );
 };
+
+export default Counter;

@@ -1,31 +1,22 @@
-import { createContext, Component } from "react";
+import { Component } from "react";
+import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Cat from "components/Cat";
+import { store } from "store";
 
-export const SmileContext = createContext();
-SmileContext.displayName = "SmileContext";
+import Cat from "components/Cat";
+import Counter from "components/Counter";
 
 class App extends Component {
-  state = {
-    smile: "👽",
-  };
-
   render() {
     return (
-      <SmileContext.Provider
-        value={{
-          smile: this.state.smile,
-          setSmile: (smile) => this.setState({ smile }),
-        }}
-      >
+      <Provider store={store}>
         <Router>
-          <header>
-            <h1>Cat</h1>
-          </header>
           <Cat />
+          <hr />
+          <Counter />
         </Router>
-      </SmileContext.Provider>
+      </Provider>
     );
   }
 }

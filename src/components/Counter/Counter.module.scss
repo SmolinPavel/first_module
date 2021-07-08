@@ -1,0 +1,17 @@
+.Counter {
+  display: flex;
+  padding: 1rem;
+
+  &__Value {
+    font-size: 1rem;
+    margin: 0 1rem;
+    width: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.InputWrapper {
+  padding: 0 1rem;
+}
