@@ -3,11 +3,12 @@ import TextField from "@material-ui/core/TextField";
 
 import { Cat } from "components/Cat";
 
-import { filter } from "store/cats";
+import { filter, selectFilterValue, selectFilteredCats } from "store/cats";
 
 import styles from "./CatList.module.scss";
 
 const CatListComponent = ({ cats, filter, filterValue }) => {
+  console.log("Render CatListComponent");
   return (
     <div>
       <div className={styles.HeaderWrapper}>
@@ -28,11 +29,11 @@ const CatListComponent = ({ cats, filter, filterValue }) => {
 };
 
 const mstp = (state) => {
-  const { filter: filterValue, items } = state.cats;
-  const filteredCats = items.filter((cat) => cat.type.includes(filterValue));
+  const filterValue = selectFilterValue(state);
+  const cats = selectFilteredCats(state);
 
   return {
-    cats: filteredCats,
+    cats,
     filterValue,
   };
 };

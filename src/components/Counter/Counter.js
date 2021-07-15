@@ -1,21 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
 
-import { clear, decrement, increment } from "store/timer";
+import { clear, decrement, increment, selectTimer } from "store/timer";
 
 import styles from "./Counter.module.scss";
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const timer = useSelector((state) => state.timer);
+  const timer = useSelector(selectTimer);
+
   return (
     <div className={styles.Counter}>
       <Button
         variant="contained"
         color="secondary"
         onClick={(e) => {
-          // { type: 'timer/decrement', payload: 1  }
-          // dispatch({ type: 'timer/decrement', payload: 1 })
           dispatch(decrement(1));
         }}
       >

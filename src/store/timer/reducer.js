@@ -2,7 +2,7 @@ import { createReducer } from "@reduxjs/toolkit";
 
 import { clear, decrement, increment } from "./actions";
 
-const initialState = 43;
+const initialState = 0;
 
 export const timerReducer = createReducer(initialState, {
   [clear]: () => 0,
