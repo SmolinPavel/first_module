@@ -1,18 +1,12 @@
 import { combineReducers } from "redux";
-import { configureStore, createAction, createReducer } from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 
-export const increment = createAction("timer/increment");
-export const decrement = createAction("timer/decrement");
-export const clear = createAction("timer/clear");
-
-const timer = createReducer(43, {
-  [increment]: (state, action) => state + action.payload,
-  [decrement]: (state, action) => state - action.payload,
-  [clear]: () => 0,
-});
+import { catsReducer } from "./cats";
+import { timerReducer } from "./timer";
 
 const rootReducer = combineReducers({
-  timer,
+  cats: catsReducer,
+  timer: timerReducer,
 });
 
 // Store

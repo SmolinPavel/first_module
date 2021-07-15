@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
 
-import { clear, decrement, increment } from "store";
+import { clear, decrement, increment } from "store/timer";
 
 import styles from "./Counter.module.scss";
 

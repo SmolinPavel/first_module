@@ -1,16 +1,14 @@
-import React from "react";
+import { Component } from "react";
 import { Button } from "@material-ui/core";
 
-const CAT_IMAGE_SRC =
-  "https://i.natgeofe.com/n/3861de2a-04e6-45fd-aec8-02e7809f9d4e/02-cat-training-NationalGeographic_1484324.jpg";
-
-class Cat extends React.Component {
+export class Cat extends Component {
   render() {
+    const { image, type } = this.props.cat;
     return (
       <div style={{ padding: "1rem" }}>
-        <h1>MR Cat</h1>
+        <h3>{type.split(",").join(" ")}</h3>
         <div>
-          <img src={CAT_IMAGE_SRC} alt="cat" width="200" />
+          <img src={image} alt="cat" height="240" />
         </div>
         <Button variant="contained" onClick={() => {}}>
           Play with the cat
@@ -19,5 +17,3 @@ class Cat extends React.Component {
     );
   }
 }
-
-export default Cat;

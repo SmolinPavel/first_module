@@ -4,17 +4,19 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import { store } from "store";
 
-import Cat from "components/Cat";
 import Counter from "components/Counter";
+import { CatList } from "components/CatList";
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <Router>
-          <Cat />
           <hr />
+          <h2>Counter</h2>
           <Counter />
+          <hr />
+          <CatList />
         </Router>
       </Provider>
     );
