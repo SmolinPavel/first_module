@@ -8,7 +8,7 @@ export const Auth = () => {
   };
 
   const handleFailure = (...params) => {
-    console.log("failure", params);
+    // console.log("failure", params);
   };
 
   return (

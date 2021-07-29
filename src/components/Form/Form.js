@@ -22,7 +22,6 @@ export class Form extends Component {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            console.log(this.state);
           }}
         >
           <div>

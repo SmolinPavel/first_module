@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "@material-ui/core/Button";
 
@@ -9,15 +10,11 @@ const Counter = () => {
   const dispatch = useDispatch();
   const timer = useSelector(selectTimer);
 
+  const handleDecrement = useCallback(() => dispatch(decrement(1)), [dispatch]);
+
   return (
     <div className={styles.Counter}>
-      <Button
-        variant="contained"
-        color="secondary"
-        onClick={(e) => {
-          dispatch(decrement(1));
-        }}
-      >
+      <Button variant="contained" color="secondary" onClick={handleDecrement}>
         -
       </Button>
       <div className={styles.Counter__Value}>{timer}</div>
